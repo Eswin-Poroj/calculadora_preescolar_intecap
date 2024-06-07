@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Luckiest Guy',
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }
