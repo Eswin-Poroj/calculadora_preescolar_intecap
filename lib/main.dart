@@ -1,4 +1,7 @@
 import 'package:app_ninios/pantallas/home.dart';
+import 'package:app_ninios/pantallas/pantallaJuego.dart';
+import 'package:app_ninios/pantallas/pantallaMejoresPuntuaciones.dart';
+import 'package:app_ninios/pantallas/pantallaNombre.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,12 +17,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Calculadora Preescolar',
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const PantallaInicio(),
+        'ingresarNombre': (context) => IngresarNombre(),
+        'juego': (context) => const Pantallajuego(),
+        'mejoresPuntuaciones': (context) => Pantallamejorespuntuaciones(),
+      },
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
         fontFamily: 'Luckiest Guy',
       ),
-      home: const Home(),
     );
   }
 }
