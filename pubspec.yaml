@@ -79,10 +79,10 @@ flutter:
   # example:
 
   fonts:
-    - family: Luckiest Guy
+    - family: LuckiestGuy
       fonts:
-        - asset: fonts/LuckiestGuy-Regular.ttf
-  # fonts:
+        - asset: assets/fonts/LuckiestGuy-Regular.ttf
+  #fonts:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

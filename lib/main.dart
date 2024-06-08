@@ -20,12 +20,14 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const PantallaInicio(),
-        'ingresarNombre': (context) => IngresarNombre(),
-        'juego': (context) => const Pantallajuego(),
-        'mejoresPuntuaciones': (context) => Pantallamejorespuntuaciones(),
+        'ingresarNombre': (context) => const IngresarNombre(),
+        'juego': (context) => Pantallajuego(
+              nombre: "",
+            ),
+        'mejoresPuntuaciones': (context) => const Pantallamejorespuntuaciones(),
       },
       theme: ThemeData(
-        fontFamily: 'Luckiest Guy',
+        fontFamily: 'LuckiestGuy',
       ),
     );
   }

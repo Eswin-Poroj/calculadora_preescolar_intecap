@@ -46,7 +46,7 @@ class PantallaInicio extends StatelessWidget {
               },
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all<Color>(Color(0xFF90CAF9)),
+                    WidgetStateProperty.all<Color>(const Color(0xFF90CAF9)),
               ),
               child: const Padding(
                 padding: EdgeInsets.all(10.0),
@@ -65,7 +65,7 @@ class PantallaInicio extends StatelessWidget {
               },
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all<Color>(Color(0xFF90CAF9)),
+                    WidgetStateProperty.all<Color>(const Color(0xFF90CAF9)),
                 //backgroundColor: WidgetStateProperty,
               ),
               child: const Padding(
