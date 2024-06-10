@@ -11,7 +11,7 @@ class IngresarNombre extends StatefulWidget {
 }
 
 class _IngresarNombreState extends State<IngresarNombre> {
-  String _nombre = '';
+  final TextEditingController _nombreUsuario = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -105,25 +105,18 @@ class _IngresarNombreState extends State<IngresarNombre> {
             Padding(
               padding: const EdgeInsets.all(100.0),
               child: TextField(
+                controller: _nombreUsuario,
                 decoration: InputDecoration(
                   label: const Center(
                     child: Text('Ingresa tu nombre:'),
                   ),
                   suffixIcon: ElevatedButton(
-                    onPressed: () async {
-                      final resultado = await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Pantallajuego(
-                                  nombre: _nombre,
-                                )),
-                      );
-
-                      if (resultado != null) {
-                        setState(() {
-                          _nombre = resultado;
-                        });
-                      }
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Pantallajuego(nombre: _nombreUsuario.text)));
                     },
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all<Color>(
@@ -133,7 +126,7 @@ class _IngresarNombreState extends State<IngresarNombre> {
                   ),
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
