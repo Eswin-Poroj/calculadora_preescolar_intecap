@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import './numero_aleatorio.dart';
 
 // ignore: must_be_immutable
 class Pantallajuego extends StatefulWidget {
@@ -14,40 +13,20 @@ class Pantallajuego extends StatefulWidget {
 
 class _PantallajuegoState extends State<Pantallajuego> {
   String nombreJugador = '';
-  final _ale = Random();
-  int num1 = 0;
-  int num2 = 0;
-  late int num3, posicion;
-  int total = 0;
-  List<int> resultado = [];
   bool acertado = false;
-
+     
   @override
   void initState() {
-    super.initState();
-    _aleatorio();
-  }
+    NumeroAaleatorio numeroAleatrio2 = NumeroAaleatorio();
 
-  void _aleatorio() {
-    setState(() {
-      num1 = _ale.nextInt(100);
-      num2 = _ale.nextInt(100);
-      total = num1 + num2;
-      posicion = _ale.nextInt(3);
-      for (int x = 0; x < 4; x++) {
-        num3 = _ale.nextInt(100);
-        while (total == num3) {
-          num3 = _ale.nextInt(100);
-        }
-        resultado.add(num3);
-      }
-      print(resultado);
-      resultado.insert(posicion, total);
-    });
-    print(posicion);
-    print(total);
-    print(resultado);
+
+    super.initState();
   }
+    Resultado resultado2 = numeroAleatrio2.generarAleatorio();
+  /*int num1 = NumeroAaleatorio().aleatorio();
+  int num2 = NumeroAaleatorio().num2;
+  int total = NumeroAaleatorio().total;
+  List<int> resultado = NumeroAaleatorio().resultado;*/
 
   _PantallajuegoState({required this.nombreJugador});
 
@@ -160,7 +139,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '$num1',
+                    '${}',
                     style: const TextStyle(
                       fontSize: 60,
                     ),
@@ -174,7 +153,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                   ),
                   const SizedBox(width: 30),
                   Text(
-                    '$num2',
+                    '${resultado2.}',
                     style: const TextStyle(
                       fontSize: 60,
                     ),
@@ -191,31 +170,25 @@ class _PantallajuegoState extends State<Pantallajuego> {
                 ElevatedButton(
                   onPressed: () {
                     if (total == resultado[0]) {
-                      acertado == true;
+                      _resultadoCorrecto(context);
                     } else {
-                      acertado == false;
+                      _resultadoIncorrecto(context);
                     }
-                    Text(
-                      acertado ? 'Felicidades ganaste' : 'Perdiste',
-                    );
                   },
                   style: ButtonStyle(
                     backgroundColor:
                         WidgetStateProperty.all<Color>(const Color(0xFF90CAF9)),
                   ),
-                  child: Text('${resultado[0]}'),
+                  child: Text('$resultado[0]'),
                 ),
                 const SizedBox(width: 30),
                 ElevatedButton(
                   onPressed: () {
                     if (total == resultado[1]) {
-                      acertado == true;
+                      _resultadoCorrecto(context);
                     } else {
-                      acertado == false;
+                      _resultadoIncorrecto(context);
                     }
-                    Text(
-                      acertado ? 'Felicidades ganaste' : 'Perdiste',
-                    );
                   },
                   style: ButtonStyle(
                     backgroundColor:
@@ -227,13 +200,10 @@ class _PantallajuegoState extends State<Pantallajuego> {
                 ElevatedButton(
                   onPressed: () {
                     if (total == resultado[2]) {
-                      acertado == true;
+                      _resultadoCorrecto(context);
                     } else {
-                      acertado == false;
+                      _resultadoIncorrecto(context);
                     }
-                    Text(
-                      acertado ? 'Felicidades ganaste' : 'Perdiste',
-                    );
                   },
                   style: ButtonStyle(
                     backgroundColor:
@@ -245,13 +215,10 @@ class _PantallajuegoState extends State<Pantallajuego> {
                 ElevatedButton(
                   onPressed: () {
                     if (total == resultado[3]) {
-                      acertado == true;
+                      _resultadoCorrecto(context);
                     } else {
-                      acertado == false;
+                      _resultadoIncorrecto(context);
                     }
-                    Text(
-                      acertado ? 'Felicidades ganaste' : 'Perdiste',
-                    );
                   },
                   style: ButtonStyle(
                     backgroundColor:
@@ -265,6 +232,72 @@ class _PantallajuegoState extends State<Pantallajuego> {
           Container(),
         ],
       ),
+    );
+  }
+
+  void _resultadoCorrecto(BuildContext context) {
+    // Llama a la función showDialog para mostrar un cuadro de diálogo.
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          // Título del diálogo.
+          title: const Text('Confirmación'),
+          // Texto del diálogo.
+          content: const Text('¡Felicidades acerto!'),
+          // Lista de acciones (botones) para el diálogo.
+          actions: <Widget>[
+            // Otro botón de texto.
+            TextButton(
+              // Texto del botón.
+              child: const Text('Continuar'),
+              // Función que se ejecuta cuando se presiona el botón.
+              onPressed: () {
+                // Avanzar a la siguiente pantalla.
+                Navigator.pushNamed(context, 'juego');
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _resultadoIncorrecto(BuildContext context) {
+    // Llama a la función showDialog para mostrar un cuadro de diálogo.
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          // Título del diálogo.
+          title: const Text('Confirmación'),
+          // Texto del diálogo.
+          content: const Text('Intente de nuevo, resultado incorrecto!'),
+          // Lista de acciones (botones) para el diálogo.
+          actions: <Widget>[
+            // Botón de texto.
+            TextButton(
+              // Texto del botón.
+              child: const Text('Reintentar'),
+              // Función que se ejecuta cuando se presiona el botón.
+              onPressed: () {
+                // Cierra el cuadro de diálogo.
+                Navigator.of(context).pop();
+              },
+            ),
+            // Otro botón de texto.
+            TextButton(
+              // Texto del botón.
+              child: const Text('Continuar'),
+              // Función que se ejecuta cuando se presiona el botón.
+              onPressed: () {
+                // Avanzar a la siguiente pantalla.
+                Navigator.pushNamed(context, 'juego');
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
