@@ -1,7 +1,8 @@
+// main.dart
 import 'package:flutter/material.dart';
-import './numero_aleatorio.dart';
 
-// ignore: must_be_immutable
+import 'numero_aleatorio.dart';
+
 class Pantallajuego extends StatefulWidget {
   dynamic nombre = '';
   Pantallajuego({required this.nombre});
@@ -14,21 +15,15 @@ class Pantallajuego extends StatefulWidget {
 class _PantallajuegoState extends State<Pantallajuego> {
   String nombreJugador = '';
   bool acertado = false;
-     
-  @override
-  void initState() {
-    NumeroAaleatorio numeroAleatrio2 = NumeroAaleatorio();
-
-
-    super.initState();
-  }
-    Resultado resultado2 = numeroAleatrio2.generarAleatorio();
-  /*int num1 = NumeroAaleatorio().aleatorio();
-  int num2 = NumeroAaleatorio().num2;
-  int total = NumeroAaleatorio().total;
-  List<int> resultado = NumeroAaleatorio().resultado;*/
+  NumeroAleatorio numeroAleatorio = NumeroAleatorio();
 
   _PantallajuegoState({required this.nombreJugador});
+
+  @override
+  void initState() {
+    super.initState();
+    numeroAleatorio.aleatorio();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +134,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '${}',
+                    '${numeroAleatorio.num1}',
                     style: const TextStyle(
                       fontSize: 60,
                     ),
@@ -153,7 +148,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                   ),
                   const SizedBox(width: 30),
                   Text(
-                    '${resultado2.}',
+                    '${numeroAleatorio.num2}',
                     style: const TextStyle(
                       fontSize: 60,
                     ),
@@ -169,62 +164,62 @@ class _PantallajuegoState extends State<Pantallajuego> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    if (total == resultado[0]) {
+                    if (numeroAleatorio.total == numeroAleatorio.resultado[0]) {
                       _resultadoCorrecto(context);
                     } else {
                       _resultadoIncorrecto(context);
                     }
                   },
                   style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(const Color(0xFF90CAF9)),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFF90CAF9)),
                   ),
-                  child: Text('$resultado[0]'),
+                  child: Text('${numeroAleatorio.resultado[0]}'),
                 ),
                 const SizedBox(width: 30),
                 ElevatedButton(
                   onPressed: () {
-                    if (total == resultado[1]) {
+                    if (numeroAleatorio.total == numeroAleatorio.resultado[1]) {
                       _resultadoCorrecto(context);
                     } else {
                       _resultadoIncorrecto(context);
                     }
                   },
                   style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(const Color(0xFF90CAF9)),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFF90CAF9)),
                   ),
-                  child: Text('${resultado[1]}'),
+                  child: Text('${numeroAleatorio.resultado[1]}'),
                 ),
                 const SizedBox(width: 30),
                 ElevatedButton(
                   onPressed: () {
-                    if (total == resultado[2]) {
+                    if (numeroAleatorio.total == numeroAleatorio.resultado[2]) {
                       _resultadoCorrecto(context);
                     } else {
                       _resultadoIncorrecto(context);
                     }
                   },
                   style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(const Color(0xFF90CAF9)),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFF90CAF9)),
                   ),
-                  child: Text('${resultado[2]}'),
+                  child: Text('${numeroAleatorio.resultado[2]}'),
                 ),
                 const SizedBox(width: 30),
                 ElevatedButton(
                   onPressed: () {
-                    if (total == resultado[3]) {
+                    if (numeroAleatorio.total == numeroAleatorio.resultado[3]) {
                       _resultadoCorrecto(context);
                     } else {
                       _resultadoIncorrecto(context);
                     }
                   },
                   style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(const Color(0xFF90CAF9)),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFF90CAF9)),
                   ),
-                  child: Text('${resultado[3]}'),
+                  child: Text('${numeroAleatorio.resultado[3]}'),
                 ),
               ],
             ),
