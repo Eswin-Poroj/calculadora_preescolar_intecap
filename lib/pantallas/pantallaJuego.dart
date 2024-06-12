@@ -18,7 +18,6 @@ class _PantallajuegoState extends State<Pantallajuego> {
   NumeroAleatorio numeroAleatorio = NumeroAleatorio();
 
   _PantallajuegoState({required this.nombreJugador});
-
   @override
   void initState() {
     super.initState();
@@ -140,8 +139,8 @@ class _PantallajuegoState extends State<Pantallajuego> {
                     ),
                   ),
                   const SizedBox(width: 30),
-                  const Text(
-                    '+',
+                  Text(
+                    '${numeroAleatorio.operador}',
                     style: TextStyle(
                       fontSize: 60,
                     ),
@@ -166,8 +165,23 @@ class _PantallajuegoState extends State<Pantallajuego> {
                   onPressed: () {
                     if (numeroAleatorio.total == numeroAleatorio.resultado[0]) {
                       _resultadoCorrecto(context);
+                      oportunidades++;
+                      puntuaje += 10;
+                      oportunidades == 4
+                          ? nivel++
+                          : oportunidades == 8
+                              ? nivel++
+                              : oportunidades == 12
+                                  ? nivel++
+                                  : oportunidades == 16
+                                      ? Navigator.pushNamed(
+                                          context, 'mejoresPuntuaciones')
+                                      : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
+                      oportunidades = 0;
+                      nivel = 1;
+                      puntuaje = 0;
                     }
                   },
                   style: ButtonStyle(
@@ -176,13 +190,28 @@ class _PantallajuegoState extends State<Pantallajuego> {
                   ),
                   child: Text('${numeroAleatorio.resultado[0]}'),
                 ),
-                const SizedBox(width: 30),
+                const SizedBox(width: 15),
                 ElevatedButton(
                   onPressed: () {
                     if (numeroAleatorio.total == numeroAleatorio.resultado[1]) {
                       _resultadoCorrecto(context);
+                      oportunidades++;
+                      puntuaje += 10;
+                      oportunidades == 4
+                          ? nivel++
+                          : oportunidades == 8
+                              ? nivel++
+                              : oportunidades == 12
+                                  ? nivel++
+                                  : oportunidades == 16
+                                      ? Navigator.pushNamed(
+                                          context, 'mejoresPuntuaciones')
+                                      : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
+                      oportunidades = 0;
+                      nivel = 1;
+                      puntuaje = 0;
                     }
                   },
                   style: ButtonStyle(
@@ -191,13 +220,28 @@ class _PantallajuegoState extends State<Pantallajuego> {
                   ),
                   child: Text('${numeroAleatorio.resultado[1]}'),
                 ),
-                const SizedBox(width: 30),
+                const SizedBox(width: 15),
                 ElevatedButton(
                   onPressed: () {
                     if (numeroAleatorio.total == numeroAleatorio.resultado[2]) {
                       _resultadoCorrecto(context);
+                      oportunidades++;
+                      puntuaje += 10;
+                      oportunidades == 4
+                          ? nivel++
+                          : oportunidades == 8
+                              ? nivel++
+                              : oportunidades == 12
+                                  ? nivel++
+                                  : oportunidades == 16
+                                      ? Navigator.pushNamed(
+                                          context, 'mejoresPuntuaciones')
+                                      : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
+                      oportunidades = 0;
+                      nivel = 1;
+                      puntuaje = 0;
                     }
                   },
                   style: ButtonStyle(
@@ -206,13 +250,28 @@ class _PantallajuegoState extends State<Pantallajuego> {
                   ),
                   child: Text('${numeroAleatorio.resultado[2]}'),
                 ),
-                const SizedBox(width: 30),
+                const SizedBox(width: 15),
                 ElevatedButton(
                   onPressed: () {
                     if (numeroAleatorio.total == numeroAleatorio.resultado[3]) {
                       _resultadoCorrecto(context);
+                      oportunidades++;
+                      puntuaje += 10;
+                      oportunidades == 4
+                          ? nivel++
+                          : oportunidades == 8
+                              ? nivel++
+                              : oportunidades == 12
+                                  ? nivel++
+                                  : oportunidades == 16
+                                      ? Navigator.pushNamed(
+                                          context, 'mejoresPuntuaciones')
+                                      : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
+                      oportunidades = 0;
+                      nivel = 1;
+                      puntuaje = 0;
                     }
                   },
                   style: ButtonStyle(
