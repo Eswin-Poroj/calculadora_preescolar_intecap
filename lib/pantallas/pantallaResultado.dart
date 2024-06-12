@@ -1,3 +1,5 @@
+import 'package:app_ninios/pantallas/pantallaJuego.dart';
+import 'package:app_ninios/pantallas/pantallaNombre.dart';
 import 'package:flutter/material.dart';
 
 /*class PantallarGanador extends StatefulWidget {
@@ -250,7 +252,10 @@ class PantallaGanador extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'ingresarNombre');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Pantallajuego(nombre: "")));
               },
               child: const Text(
                 'JUGAR DE NUEVO',

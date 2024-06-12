@@ -6,7 +6,7 @@ List<dynamic> mejorJugador = [90, 70, 50];
 
 class NumeroAleatorio {
   int puntajeFinal = 0;
-  dynamic num1 = 0, num2 = 0, total = 0, num3 = 0;
+  dynamic num1 = 0, num2 = 0, total = 0, num3 = 0, numMulti1 = 0, numMulti2 = 0;
   String operador = '';
   String operacion = '';
   late int posicion;
@@ -24,10 +24,18 @@ class NumeroAleatorio {
   }
 
   void aleatorio() {
+    //Aleatorios para suma, resta y división
     num1 = _ale.nextInt(100);
     num2 = _ale.nextInt(100);
+    //Aleatorio para multiplicación
+    numMulti1 = _ale.nextInt(10);
+    numMulti2 = _ale.nextInt(10);
+    //Aleatorio para posición aleatorio
     posicion = _ale.nextInt(4);
     resultado.clear();
+    while (num1 < num2) {
+      num2 = _ale.nextInt(100);
+    }
     for (int x = 0; x < 4; x++) {
       if (nivel == 4) {
         num3 = _ale.nextDouble() * 100;
@@ -53,7 +61,9 @@ class NumeroAleatorio {
       operador = '-';
       operacion = 'RESTA';
     } else if (nivel == 3) {
-      total = num1 * num2;
+      num1 = numMulti1;
+      num2 = numMulti2;
+      total = numMulti1 * numMulti2;
       operador = '*';
       operacion = 'MULTIPLICACIÓN';
     } else if (nivel == 4) {

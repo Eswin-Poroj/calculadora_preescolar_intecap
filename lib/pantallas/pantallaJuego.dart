@@ -328,19 +328,12 @@ class _PantallajuegoState extends State<Pantallajuego> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          // Título del diálogo.
-          title: const Text('Confirmación'),
-          // Texto del diálogo.
-          content: const Text('¡Felicidades acerto!'),
-          // Lista de acciones (botones) para el diálogo.
+          title: const Text('¡Siiiii!!!'),
+          content: Text('¡Eres grande $nombreJugador, acertaste!'),
           actions: <Widget>[
-            // Otro botón de texto.
             TextButton(
-              // Texto del botón.
-              child: const Text('Continuar'),
-              // Función que se ejecuta cuando se presiona el botón.
+              child: const Text('¡Vamos por más!'),
               onPressed: () {
-                // Avanzar a la siguiente pantalla.
                 Navigator.pushNamed(context, 'juego');
               },
             ),
@@ -350,36 +343,24 @@ class _PantallajuegoState extends State<Pantallajuego> {
     );
   }
 
+  dynamic nuevoNombre;
   void _resultadoIncorrecto(BuildContext context) {
-    // Llama a la función showDialog para mostrar un cuadro de diálogo.
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          // Título del diálogo.
-          title: const Text('Confirmación'),
-          // Texto del diálogo.
-          content: const Text('Intente de nuevo, resultado incorrecto!'),
-          // Lista de acciones (botones) para el diálogo.
+          title: const Text('¡Lastima :( !'),
+          content: Text('¡Vamos $nombreJugador intentemos de nuevo!'),
           actions: <Widget>[
-            // Botón de texto.
             TextButton(
-              // Texto del botón.
-              child: const Text('Reintentar'),
-              // Función que se ejecuta cuando se presiona el botón.
+              child: const Text('Nueva Partida'),
               onPressed: () {
-                // Cierra el cuadro de diálogo.
-                Navigator.of(context).pop();
-              },
-            ),
-            // Otro botón de texto.
-            TextButton(
-              // Texto del botón.
-              child: const Text('Continuar'),
-              // Función que se ejecuta cuando se presiona el botón.
-              onPressed: () {
-                // Avanzar a la siguiente pantalla.
-                Navigator.pushNamed(context, 'juego');
+                nuevoNombre = nombreJugador;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Pantallajuego(nombre: nuevoNombre)));
               },
             ),
           ],

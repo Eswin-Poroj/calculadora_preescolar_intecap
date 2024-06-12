@@ -12,6 +12,7 @@ class IngresarNombre extends StatefulWidget {
 
 class _IngresarNombreState extends State<IngresarNombre> {
   final TextEditingController _nombreUsuario = TextEditingController();
+  dynamic nombreFinal;
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +113,7 @@ class _IngresarNombreState extends State<IngresarNombre> {
                   ),
                   suffixIcon: ElevatedButton(
                     onPressed: () {
+                      nombreFinal = _nombreUsuario;
                       Navigator.push(
                           context,
                           MaterialPageRoute(
