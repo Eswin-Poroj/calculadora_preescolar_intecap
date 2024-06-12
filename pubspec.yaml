@@ -60,6 +60,7 @@ flutter:
 
   assets:
     - assets/imagenes/icono.png
+    - assets/imagenes/victoria.gif
 
   # To add assets to your application, add an assets section, like this:
   # assets:

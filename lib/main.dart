@@ -2,6 +2,7 @@ import 'package:app_ninios/pantallas/home.dart';
 import 'package:app_ninios/pantallas/pantallaJuego.dart';
 import 'package:app_ninios/pantallas/pantallaMejoresPuntuaciones.dart';
 import 'package:app_ninios/pantallas/pantallaNombre.dart';
+import 'package:app_ninios/pantallas/pantallaResultado.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,6 +26,8 @@ class MyApp extends StatelessWidget {
               nombre: "",
             ),
         'mejoresPuntuaciones': (context) => const Pantallamejorespuntuaciones(),
+        'pantallaGanador': (context) =>
+            PantallaGanador(nombre: "", puntaje: ""),
       },
       theme: ThemeData(
         fontFamily: 'LuckiestGuy',

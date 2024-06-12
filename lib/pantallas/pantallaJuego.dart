@@ -1,4 +1,5 @@
 // main.dart
+import 'package:app_ninios/pantallas/pantallaResultado.dart';
 import 'package:flutter/material.dart';
 
 import 'numero_aleatorio.dart';
@@ -39,10 +40,10 @@ class _PantallajuegoState extends State<Pantallajuego> {
             );
           },
         ),
-        title: const Center(
+        title: Center(
           child: Text(
-            '¡¡Jugemos!!',
-            style: TextStyle(
+            '¡¡Jugemos $nombreJugador!!',
+            style: const TextStyle(
               fontSize: 15,
             ),
           ),
@@ -115,9 +116,9 @@ class _PantallajuegoState extends State<Pantallajuego> {
           Center(
             child: SizedBox(
               child: Text(
-                'SUMA',
+                numeroAleatorio.operacion,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                 ),
@@ -141,7 +142,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                   const SizedBox(width: 30),
                   Text(
                     '${numeroAleatorio.operador}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 60,
                     ),
                   ),
@@ -174,8 +175,16 @@ class _PantallajuegoState extends State<Pantallajuego> {
                               : oportunidades == 12
                                   ? nivel++
                                   : oportunidades == 16
-                                      ? Navigator.pushNamed(
-                                          context, 'mejoresPuntuaciones')
+                                      ? Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PantallaGanador(
+                                                    nombre: nombreJugador,
+                                                    puntaje: numeroAleatorio
+                                                        .puntajeFinal),
+                                          ),
+                                        )
                                       : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
@@ -204,8 +213,16 @@ class _PantallajuegoState extends State<Pantallajuego> {
                               : oportunidades == 12
                                   ? nivel++
                                   : oportunidades == 16
-                                      ? Navigator.pushNamed(
-                                          context, 'mejoresPuntuaciones')
+                                      ? Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PantallaGanador(
+                                                    nombre: nombreJugador,
+                                                    puntaje: numeroAleatorio
+                                                        .puntajeFinal),
+                                          ),
+                                        )
                                       : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
@@ -234,8 +251,16 @@ class _PantallajuegoState extends State<Pantallajuego> {
                               : oportunidades == 12
                                   ? nivel++
                                   : oportunidades == 16
-                                      ? Navigator.pushNamed(
-                                          context, 'mejoresPuntuaciones')
+                                      ? Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PantallaGanador(
+                                                    nombre: nombreJugador,
+                                                    puntaje: numeroAleatorio
+                                                        .puntajeFinal),
+                                          ),
+                                        )
                                       : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
@@ -264,8 +289,16 @@ class _PantallajuegoState extends State<Pantallajuego> {
                               : oportunidades == 12
                                   ? nivel++
                                   : oportunidades == 16
-                                      ? Navigator.pushNamed(
-                                          context, 'mejoresPuntuaciones')
+                                      ? Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PantallaGanador(
+                                                    nombre: nombreJugador,
+                                                    puntaje: numeroAleatorio
+                                                        .puntajeFinal),
+                                          ),
+                                        )
                                       : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);

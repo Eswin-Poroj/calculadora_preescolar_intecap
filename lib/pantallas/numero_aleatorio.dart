@@ -5,8 +5,10 @@ int oportunidades = 0, nivel = 1, puntuaje = 0;
 List<dynamic> mejorJugador = [90, 70, 50];
 
 class NumeroAleatorio {
+  int puntajeFinal = 0;
   dynamic num1 = 0, num2 = 0, total = 0, num3 = 0;
   String operador = '';
+  String operacion = '';
   late int posicion;
   List<dynamic> resultado = [];
   final _ale = Random();
@@ -45,16 +47,20 @@ class NumeroAleatorio {
     if (nivel == 1) {
       total = num1 + num2;
       operador = '+';
+      operacion = 'suma';
     } else if (nivel == 2) {
       total = num1 - num2;
       operador = '-';
+      operacion = 'RESTA';
     } else if (nivel == 3) {
       total = num1 * num2;
       operador = '*';
+      operacion = 'MULTIPLICACIÓN';
     } else if (nivel == 4) {
       total = num1 / num2;
       total = total.toStringAsFixed(2);
       operador = '÷';
+      operacion = 'DIVISIÓN';
       resultado.removeAt(posicion);
       resultado.insert(posicion, total);
       print("total es: $total");
@@ -69,6 +75,7 @@ class NumeroAleatorio {
       print(resultado);
       print("total es: $total");
     }
+    puntajeFinal = puntuaje;
     print("OPORTUNIDADES: $oportunidades");
     print("NIVEL: $nivel");
     print("PUNTUAJE: $puntuaje");
