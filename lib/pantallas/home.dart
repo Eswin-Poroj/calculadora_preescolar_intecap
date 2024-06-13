@@ -16,10 +16,8 @@ class PantallaInicio extends StatelessWidget {
         color: const Color(0xFFE0E0E0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 25.0,
-            ),
             SizedBox(
               width: 150,
               child: Image.asset('assets/imagenes/icono.png'),

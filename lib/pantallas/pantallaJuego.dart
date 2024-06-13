@@ -36,12 +36,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
           builder: (context) {
             return IconButton(
               onPressed: () {
-                numeroAleatorio.mejorPuntuacion();
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    '/', (Route<dynamic> route) => false);
-                puntuaje = 0;
-                nivel = 1;
-                oportunidades = 0;
+                _advertenciaSalida(context);
               },
               icon: Image.asset('assets/imagenes/icono.png'),
             );
@@ -160,8 +155,22 @@ class _PantallajuegoState extends State<Pantallajuego> {
                       fontSize: 80,
                     ),
                   ),
+                  const SizedBox(width: 30),
+                  Text(
+                    "=",
+                    style: const TextStyle(
+                      fontSize: 80,
+                    ),
+                  ),
                 ],
               ),
+            ),
+          ),
+          const SizedBox(height: 30),
+          Container(
+            child: Text(
+              "Respuestas posibles",
+              style: TextStyle(fontSize: 20, color: Colors.redAccent),
             ),
           ),
           const SizedBox(height: 30),
@@ -350,9 +359,11 @@ class _PantallajuegoState extends State<Pantallajuego> {
           ),
           Container(
             margin: const EdgeInsets.only(
-              top: 30.0,
+              top: 80.0,
             ),
-            child: Image.asset('assets/imagenes/juego.gif'),
+            child: Image.asset(
+              'assets/imagenes/juego.gif',
+            ),
           )
         ],
       ),

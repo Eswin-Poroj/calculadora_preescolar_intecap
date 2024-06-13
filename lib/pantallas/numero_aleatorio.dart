@@ -7,8 +7,7 @@ List<dynamic> mejorJugador = [0, 0, 0];
 class NumeroAleatorio {
   int puntajeFinal = 0;
   dynamic num1 = 0, num2 = 0, total = 0, num3 = 0, numMulti1 = 0, numMulti2 = 0;
-  String operador = '';
-  String operacion = '';
+  String operador = '', operacion = '';
   late int posicion;
   List<dynamic> resultado = [];
   final _ale = Random();
@@ -16,11 +15,17 @@ class NumeroAleatorio {
     bool entrada = false;
     for (int x = 0; x < 3; x++) {
       if (puntuaje > mejorJugador[x] && entrada == false) {
-        mejorJugador.insert(x, puntuaje);
-        entrada = true;
+        if (puntuaje != mejorJugador[0] &&
+            puntuaje != mejorJugador[1] &&
+            puntuaje != mejorJugador[2]) {
+          mejorJugador.insert(x, puntuaje);
+          entrada = true;
+        }
       }
     }
-    mejorJugador.removeAt(3);
+    if (entrada == true) {
+      mejorJugador.removeAt(3);
+    }
   }
 
   void aleatorio() {
