@@ -203,7 +203,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                   padding: const EdgeInsets.only(top: 5.0, right: 0, left: 0),
                   child: Text(
                     '${numeroAleatorio.resultado[0]}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 25,
                     ),
                   ),
@@ -466,7 +466,8 @@ class _PantallajuegoState extends State<Pantallajuego> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Pantallamejorespuntuaciones()));
+                        builder: (context) =>
+                            const Pantallamejorespuntuaciones()));
               },
             ),
           ],

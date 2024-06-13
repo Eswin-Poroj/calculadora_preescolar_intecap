@@ -16,7 +16,7 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamedAndRemoveUntil(
                     '/', (Route<dynamic> route) => false);
-                    puntuaje = 0;
+                puntuaje = 0;
                 nivel = 1;
                 oportunidades = 0;
               },
@@ -119,14 +119,14 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              Text(
+              const Text(
                 'Top de Jugadores',
                 style: TextStyle(
                   fontSize: 25,
                 ),
               ),
               const SizedBox(height: 20),
-              Text(
+              const Text(
                 'Jugador 1',
                 style: TextStyle(
                   fontSize: 40,
@@ -138,17 +138,17 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
                   Container(
                     width: 60,
                     height: 60,
-                    padding: EdgeInsets.all(0),
-                    margin: EdgeInsets.only(
+                    padding: const EdgeInsets.all(0),
+                    margin: const EdgeInsets.only(
                       left: 25,
                     ),
                     child: Image.asset('assets/imagenes/estrella.gif'),
                   ),
                   Container(
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       left: 0,
                     ),
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     height: 30,
                     width: 180,
                     color: Colors.amberAccent,
@@ -156,9 +156,9 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
                       child: Text(
                         '${mejorJugador[0]}',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 25,
-                          color: const Color.fromARGB(255, 7, 36, 59),
+                          color: Color.fromARGB(255, 7, 36, 59),
                         ),
                       ),
                     ),
@@ -166,7 +166,7 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              Text(
+              const Text(
                 'Jugador 2',
                 style: TextStyle(
                   fontSize: 40,
@@ -178,17 +178,17 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
                   Container(
                     width: 60,
                     height: 60,
-                    padding: EdgeInsets.all(0),
-                    margin: EdgeInsets.only(
+                    padding: const EdgeInsets.all(0),
+                    margin: const EdgeInsets.only(
                       left: 25,
                     ),
                     child: Image.asset('assets/imagenes/estrella.gif'),
                   ),
                   Container(
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       left: 0,
                     ),
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     height: 30,
                     width: 180,
                     color: Colors.amberAccent,
@@ -196,9 +196,9 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
                       child: Text(
                         '${mejorJugador[1]}',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 25,
-                          color: const Color.fromARGB(255, 7, 36, 59),
+                          color: Color.fromARGB(255, 7, 36, 59),
                         ),
                       ),
                     ),
@@ -206,7 +206,7 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              Text(
+              const Text(
                 'Jugador 3',
                 style: TextStyle(
                   fontSize: 40,
@@ -218,17 +218,17 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
                   Container(
                     width: 60,
                     height: 60,
-                    padding: EdgeInsets.all(0),
-                    margin: EdgeInsets.only(
+                    padding: const EdgeInsets.all(0),
+                    margin: const EdgeInsets.only(
                       left: 25,
                     ),
                     child: Image.asset('assets/imagenes/estrella.gif'),
                   ),
                   Container(
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       left: 0,
                     ),
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     height: 30,
                     width: 180,
                     color: Colors.amberAccent,
@@ -236,9 +236,9 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
                       child: Text(
                         '${mejorJugador[2]}',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 25,
-                          color: const Color.fromARGB(255, 7, 36, 59),
+                          color: Color.fromARGB(255, 7, 36, 59),
                         ),
                       ),
                     ),

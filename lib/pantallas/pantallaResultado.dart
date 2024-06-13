@@ -131,7 +131,7 @@ class PantallaGanador extends StatelessWidget {
               child: Center(
                 child: Text(
                   'Tu puntaje fue de: $puntaje',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                   ),
