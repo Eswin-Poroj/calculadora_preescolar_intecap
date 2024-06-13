@@ -45,7 +45,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
         ),
         title: Center(
           child: Text(
-            '¡¡Jugemos $nombreJugador!!',
+            '¡¡Jugemos $nombreFinal!!',
             style: const TextStyle(
               fontSize: 15,
             ),

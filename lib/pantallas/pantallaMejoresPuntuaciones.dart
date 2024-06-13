@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'numero_aleatorio.dart';
+
 class Pantallamejorespuntuaciones extends StatelessWidget {
   const Pantallamejorespuntuaciones({super.key});
 
   @override
   Widget build(BuildContext context) {
+    NumeroAleatorio numeroAleatorio = NumeroAleatorio();
+    numeroAleatorio.mejorPuntuacion();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFD3D3D3),
@@ -89,6 +93,9 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      body: Container(
+        
       ),
     );
   }

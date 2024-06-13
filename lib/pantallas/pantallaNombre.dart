@@ -1,15 +1,14 @@
 import 'package:app_ninios/pantallas/pantallaJuego.dart';
 import 'package:flutter/material.dart';
 
+String nombreFinal = '';
+
 class IngresarNombre extends StatefulWidget {
   const IngresarNombre({super.key});
-
   @override
   // ignore: library_private_types_in_public_api
   _IngresarNombreState createState() => _IngresarNombreState();
 }
-
-dynamic nombreFinal;
 
 class _IngresarNombreState extends State<IngresarNombre> {
   final TextEditingController _nombreUsuario = TextEditingController();
@@ -115,7 +114,7 @@ class _IngresarNombreState extends State<IngresarNombre> {
                   ),
                   suffixIcon: ElevatedButton(
                     onPressed: () {
-                      nombreFinal = _nombreUsuario;
+                      nombreFinal = _nombreUsuario.text;
                       Navigator.push(
                           context,
                           MaterialPageRoute(
