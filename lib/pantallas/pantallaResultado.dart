@@ -100,13 +100,13 @@ class PantallaGanador extends StatelessWidget {
           children: [
             Text(
               '¡Felicidades $nombre!',
-              style: const TextStyle(fontSize: 50),
+              style: const TextStyle(fontSize: 35),
             ),
             const SizedBox(height: 10),
             const Text(
               '¡Haz Ganado!',
               style: TextStyle(
-                fontSize: 35,
+                fontSize: 25,
               ),
             ),
             const SizedBox(height: 10),

@@ -94,8 +94,159 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
           ],
         ),
       ),
-      body: Container(
-        
+      body: Center(
+        child: Container(
+          height: 500,
+          width: 300,
+          decoration: const BoxDecoration(
+              color: Color.fromRGBO(216, 160, 169, 0.996),
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+              border: Border.symmetric(
+                vertical: BorderSide(
+                  width: 5.0,
+                  color: Colors.blueAccent,
+                  style: BorderStyle.solid,
+                ),
+                horizontal: BorderSide(
+                  width: 5.0,
+                  color: Colors.blueAccent,
+                  style: BorderStyle.solid,
+                ),
+              )),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              Text(
+                'Top de Jugadores',
+                style: TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Jugador 1',
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 60,
+                    height: 60,
+                    padding: EdgeInsets.all(0),
+                    margin: EdgeInsets.only(
+                      left: 25,
+                    ),
+                    child: Image.asset('assets/imagenes/estrella.gif'),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: 0,
+                    ),
+                    padding: EdgeInsets.all(0),
+                    height: 30,
+                    width: 180,
+                    color: Colors.amberAccent,
+                    child: Center(
+                      child: Text(
+                        '${mejorJugador[0]}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: const Color.fromARGB(255, 7, 36, 59),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Jugador 2',
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 60,
+                    height: 60,
+                    padding: EdgeInsets.all(0),
+                    margin: EdgeInsets.only(
+                      left: 25,
+                    ),
+                    child: Image.asset('assets/imagenes/estrella.gif'),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: 0,
+                    ),
+                    padding: EdgeInsets.all(0),
+                    height: 30,
+                    width: 180,
+                    color: Colors.amberAccent,
+                    child: Center(
+                      child: Text(
+                        '${mejorJugador[1]}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: const Color.fromARGB(255, 7, 36, 59),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Jugador 3',
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 60,
+                    height: 60,
+                    padding: EdgeInsets.all(0),
+                    margin: EdgeInsets.only(
+                      left: 25,
+                    ),
+                    child: Image.asset('assets/imagenes/estrella.gif'),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: 0,
+                    ),
+                    padding: EdgeInsets.all(0),
+                    height: 30,
+                    width: 180,
+                    color: Colors.amberAccent,
+                    child: Center(
+                      child: Text(
+                        '${mejorJugador[2]}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: const Color.fromARGB(255, 7, 36, 59),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

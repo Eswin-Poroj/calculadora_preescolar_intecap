@@ -183,7 +183,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                                           MaterialPageRoute(
                                             builder: (context) =>
                                                 PantallaGanador(
-                                                    nombre: nombreJugador,
+                                                    nombre: nombreFinal,
                                                     puntaje: numeroAleatorio
                                                         .puntajeFinal),
                                           ),
@@ -221,7 +221,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                                           MaterialPageRoute(
                                             builder: (context) =>
                                                 PantallaGanador(
-                                                    nombre: nombreJugador,
+                                                    nombre: nombreFinal,
                                                     puntaje: numeroAleatorio
                                                         .puntajeFinal),
                                           ),
@@ -259,7 +259,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                                           MaterialPageRoute(
                                             builder: (context) =>
                                                 PantallaGanador(
-                                                    nombre: nombreJugador,
+                                                    nombre: nombreFinal,
                                                     puntaje: numeroAleatorio
                                                         .puntajeFinal),
                                           ),
@@ -297,7 +297,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                                           MaterialPageRoute(
                                             builder: (context) =>
                                                 PantallaGanador(
-                                                    nombre: nombreJugador,
+                                                    nombre: nombreFinal,
                                                     puntaje: numeroAleatorio
                                                         .puntajeFinal),
                                           ),
