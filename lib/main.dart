@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         'juego': (context) => Pantallajuego(
               nombre: "",
             ),
-        'mejoresPuntuaciones': (context) => const Pantallamejorespuntuaciones(),
+        'mejoresPuntuaciones': (context) => Pantallamejorespuntuaciones(),
         'pantallaGanador': (context) =>
             PantallaGanador(nombre: "", puntaje: ""),
       },

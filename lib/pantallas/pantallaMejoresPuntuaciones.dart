@@ -7,8 +7,6 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NumeroAleatorio numeroAleatorio = NumeroAleatorio();
-    numeroAleatorio.mejorPuntuacion();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFD3D3D3),
@@ -18,6 +16,9 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamedAndRemoveUntil(
                     '/', (Route<dynamic> route) => false);
+                    puntuaje = 0;
+                nivel = 1;
+                oportunidades = 0;
               },
               icon: Image.asset('assets/imagenes/icono.png'),
             );

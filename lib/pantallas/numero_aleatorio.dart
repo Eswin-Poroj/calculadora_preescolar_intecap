@@ -2,7 +2,7 @@
 import 'dart:math';
 
 int oportunidades = 0, nivel = 1, puntuaje = 0;
-List<dynamic> mejorJugador = [90, 70, 50];
+List<dynamic> mejorJugador = [0, 0, 0];
 
 class NumeroAleatorio {
   int puntajeFinal = 0;
@@ -14,13 +14,13 @@ class NumeroAleatorio {
   final _ale = Random();
   void mejorPuntuacion() {
     bool entrada = false;
-    for (int x = 2; x >= 0; x--) {
+    for (int x = 0; x < 3; x++) {
       if (puntuaje > mejorJugador[x] && entrada == false) {
-        mejorJugador.removeAt(x);
         mejorJugador.insert(x, puntuaje);
         entrada = true;
       }
     }
+    mejorJugador.removeAt(3);
   }
 
   void aleatorio() {

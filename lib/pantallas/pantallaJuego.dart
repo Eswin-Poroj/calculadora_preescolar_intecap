@@ -9,7 +9,7 @@ import 'pantallaNombre.dart';
 class Pantallajuego extends StatefulWidget {
   dynamic nombre = '';
   Pantallajuego({required this.nombre});
-
+  NumeroAleatorio numeroAleatorio = NumeroAleatorio();
   @override
   _PantallajuegoState createState() =>
       _PantallajuegoState(nombreJugador: nombre);
@@ -36,8 +36,12 @@ class _PantallajuegoState extends State<Pantallajuego> {
           builder: (context) {
             return IconButton(
               onPressed: () {
+                numeroAleatorio.mejorPuntuacion();
                 Navigator.of(context).pushNamedAndRemoveUntil(
                     '/', (Route<dynamic> route) => false);
+                puntuaje = 0;
+                nivel = 1;
+                oportunidades = 0;
               },
               icon: Image.asset('assets/imagenes/icono.png'),
             );
@@ -191,9 +195,6 @@ class _PantallajuegoState extends State<Pantallajuego> {
                                       : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
-                      oportunidades = 0;
-                      nivel = 1;
-                      puntuaje = 0;
                     }
                   },
                   style: ButtonStyle(
@@ -229,9 +230,6 @@ class _PantallajuegoState extends State<Pantallajuego> {
                                       : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
-                      oportunidades = 0;
-                      nivel = 1;
-                      puntuaje = 0;
                     }
                   },
                   style: ButtonStyle(
@@ -267,9 +265,6 @@ class _PantallajuegoState extends State<Pantallajuego> {
                                       : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
-                      oportunidades = 0;
-                      nivel = 1;
-                      puntuaje = 0;
                     }
                   },
                   style: ButtonStyle(
@@ -305,9 +300,6 @@ class _PantallajuegoState extends State<Pantallajuego> {
                                       : print("ERROR");
                     } else {
                       _resultadoIncorrecto(context);
-                      oportunidades = 0;
-                      nivel = 1;
-                      puntuaje = 0;
                     }
                   },
                   style: ButtonStyle(
@@ -359,6 +351,9 @@ class _PantallajuegoState extends State<Pantallajuego> {
               child: const Text('Nueva Partida'),
               onPressed: () {
                 nuevoNombre = nombreJugador;
+                puntuaje = 0;
+                nivel = 1;
+                oportunidades = 0;
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -378,8 +373,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('¡Advertencia!'),
-          content: const Text(
-              '¡Estas intentando salir del juego y no sé te guardará tu puntuaje obtenido!'),
+          content: const Text('¡Estas intentando salir del juego!'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -390,6 +384,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
             TextButton(
               child: const Text('Salir'),
               onPressed: () {
+                numeroAleatorio.mejorPuntuacion();
                 nuevoNombre = nombreJugador;
                 puntuaje = 0;
                 nivel = 1;
@@ -410,8 +405,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('¡Advertencia!'),
-          content: const Text(
-              '¡Estas intentando salir del juego y no sé te guardará tu puntuaje obtenido!'),
+          content: const Text('¡Estas intentando salir del juego!'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -422,6 +416,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
             TextButton(
               child: const Text('Salir'),
               onPressed: () {
+                numeroAleatorio.mejorPuntuacion();
                 nuevoNombre = nombreJugador;
                 puntuaje = 0;
                 nivel = 1;

@@ -1,5 +1,6 @@
 import 'package:app_ninios/pantallas/pantallaJuego.dart';
 import 'package:flutter/material.dart';
+import 'numero_aleatorio.dart';
 
 String nombreFinal = '';
 
@@ -24,6 +25,9 @@ class _IngresarNombreState extends State<IngresarNombre> {
               onPressed: () {
                 Navigator.of(context).pushNamedAndRemoveUntil(
                     '/', (Route<dynamic> route) => false);
+                puntuaje = 0;
+                nivel = 1;
+                oportunidades = 0;
               },
               icon: Image.asset('assets/imagenes/icono.png'),
             );

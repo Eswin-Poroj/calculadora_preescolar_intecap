@@ -6,9 +6,10 @@ class PantallaGanador extends StatelessWidget {
   dynamic nombre = "";
   dynamic puntaje = 0;
   PantallaGanador({required this.nombre, required this.puntaje});
-
   @override
   Widget build(BuildContext context) {
+    NumeroAleatorio numeroAleatorio = NumeroAleatorio();
+    numeroAleatorio.mejorPuntuacion();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFD3D3D3),
@@ -18,6 +19,9 @@ class PantallaGanador extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamedAndRemoveUntil(
                     '/', (Route<dynamic> route) => false);
+                puntuaje = 0;
+                nivel = 1;
+                oportunidades = 0;
               },
               icon: Image.asset('assets/imagenes/icono.png'),
             );
@@ -69,7 +73,7 @@ class PantallaGanador extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               onTap: () {
-                Navigator.pushNamed(context, 'mejoresPuntucaciones');
+                Navigator.pushNamed(context, 'mejoresPuntuaciones');
               },
             ),
             const SizedBox(
