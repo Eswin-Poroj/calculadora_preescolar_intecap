@@ -18,27 +18,27 @@ class PantallaInicio extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 80.0,
+              height: 25.0,
             ),
             SizedBox(
-              width: 100,
+              width: 150,
               child: Image.asset('assets/imagenes/icono.png'),
             ),
             const SizedBox(
-              height: 50,
+              height: 20,
             ),
             const SizedBox(
               width: 300,
               child: Text(
                 'CALCULADORA DE OPERACIONES BÁSICAS',
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 50.0),
+            const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, 'ingresarNombre');
@@ -52,12 +52,13 @@ class PantallaInicio extends StatelessWidget {
                 child: Text(
                   'JUGAR',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 1, 53, 78),
+                    fontSize: 30.0,
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 50.0),
+            const SizedBox(height: 30.0),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, 'mejoresPuntuaciones');
@@ -72,7 +73,8 @@ class PantallaInicio extends StatelessWidget {
                 child: Text(
                   'MEJORES PUNTACIONES',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 1, 53, 78),
+                    fontSize: 25.0,
                   ),
                 ),
               ),

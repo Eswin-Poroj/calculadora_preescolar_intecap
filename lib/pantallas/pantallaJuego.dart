@@ -126,14 +126,14 @@ class _PantallajuegoState extends State<Pantallajuego> {
                 numeroAleatorio.operacion,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 50,
+                    color: Colors.blueAccent),
               ),
             ),
           ),
           const SizedBox(
-            height: 150,
+            height: 40,
           ),
           Center(
             child: SizedBox(
@@ -143,21 +143,21 @@ class _PantallajuegoState extends State<Pantallajuego> {
                   Text(
                     '${numeroAleatorio.num1}',
                     style: const TextStyle(
-                      fontSize: 60,
+                      fontSize: 80,
                     ),
                   ),
                   const SizedBox(width: 30),
                   Text(
-                    '${numeroAleatorio.operador}',
+                    numeroAleatorio.operador,
                     style: const TextStyle(
-                      fontSize: 60,
+                      fontSize: 80,
                     ),
                   ),
                   const SizedBox(width: 30),
                   Text(
                     '${numeroAleatorio.num2}',
                     style: const TextStyle(
-                      fontSize: 60,
+                      fontSize: 80,
                     ),
                   ),
                 ],
@@ -165,153 +165,195 @@ class _PantallajuegoState extends State<Pantallajuego> {
             ),
           ),
           const SizedBox(height: 30),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    if (numeroAleatorio.total == numeroAleatorio.resultado[0]) {
-                      _resultadoCorrecto(context);
-                      oportunidades++;
-                      puntuaje += 10;
-                      oportunidades == 4
-                          ? nivel++
-                          : oportunidades == 8
-                              ? nivel++
-                              : oportunidades == 12
-                                  ? nivel++
-                                  : oportunidades == 16
-                                      ? Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                PantallaGanador(
-                                                    nombre: nombreFinal,
-                                                    puntaje: numeroAleatorio
-                                                        .puntajeFinal),
-                                          ),
-                                        )
-                                      : print("ERROR");
-                    } else {
-                      _resultadoIncorrecto(context);
-                    }
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color(0xFF90CAF9)),
-                  ),
-                  child: Text('${numeroAleatorio.resultado[0]}'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  if (numeroAleatorio.total == numeroAleatorio.resultado[0]) {
+                    _resultadoCorrecto(context);
+                    oportunidades++;
+                    puntuaje += 10;
+                    oportunidades == 4
+                        ? nivel++
+                        : oportunidades == 8
+                            ? nivel++
+                            : oportunidades == 12
+                                ? nivel++
+                                : oportunidades == 16
+                                    ? Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => PantallaGanador(
+                                              nombre: nombreFinal,
+                                              puntaje:
+                                                  numeroAleatorio.puntajeFinal),
+                                        ),
+                                      )
+                                    : print("ERROR");
+                  } else {
+                    _resultadoIncorrecto(context);
+                  }
+                },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xFF90CAF9)),
                 ),
-                const SizedBox(width: 15),
-                ElevatedButton(
-                  onPressed: () {
-                    if (numeroAleatorio.total == numeroAleatorio.resultado[1]) {
-                      _resultadoCorrecto(context);
-                      oportunidades++;
-                      puntuaje += 10;
-                      oportunidades == 4
-                          ? nivel++
-                          : oportunidades == 8
-                              ? nivel++
-                              : oportunidades == 12
-                                  ? nivel++
-                                  : oportunidades == 16
-                                      ? Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                PantallaGanador(
-                                                    nombre: nombreFinal,
-                                                    puntaje: numeroAleatorio
-                                                        .puntajeFinal),
-                                          ),
-                                        )
-                                      : print("ERROR");
-                    } else {
-                      _resultadoIncorrecto(context);
-                    }
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color(0xFF90CAF9)),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5.0, right: 0, left: 0),
+                  child: Text(
+                    '${numeroAleatorio.resultado[0]}',
+                    style: TextStyle(
+                      fontSize: 25,
+                    ),
                   ),
-                  child: Text('${numeroAleatorio.resultado[1]}'),
                 ),
-                const SizedBox(width: 15),
-                ElevatedButton(
-                  onPressed: () {
-                    if (numeroAleatorio.total == numeroAleatorio.resultado[2]) {
-                      _resultadoCorrecto(context);
-                      oportunidades++;
-                      puntuaje += 10;
-                      oportunidades == 4
-                          ? nivel++
-                          : oportunidades == 8
-                              ? nivel++
-                              : oportunidades == 12
-                                  ? nivel++
-                                  : oportunidades == 16
-                                      ? Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                PantallaGanador(
-                                                    nombre: nombreFinal,
-                                                    puntaje: numeroAleatorio
-                                                        .puntajeFinal),
-                                          ),
-                                        )
-                                      : print("ERROR");
-                    } else {
-                      _resultadoIncorrecto(context);
-                    }
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color(0xFF90CAF9)),
+              ),
+              const SizedBox(width: 15),
+              ElevatedButton(
+                onPressed: () {
+                  if (numeroAleatorio.total == numeroAleatorio.resultado[1]) {
+                    _resultadoCorrecto(context);
+                    oportunidades++;
+                    puntuaje += 10;
+                    oportunidades == 4
+                        ? nivel++
+                        : oportunidades == 8
+                            ? nivel++
+                            : oportunidades == 12
+                                ? nivel++
+                                : oportunidades == 16
+                                    ? Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => PantallaGanador(
+                                              nombre: nombreFinal,
+                                              puntaje:
+                                                  numeroAleatorio.puntajeFinal),
+                                        ),
+                                      )
+                                    : print("ERROR");
+                  } else {
+                    _resultadoIncorrecto(context);
+                  }
+                },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xFF90CAF9)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 5.0,
                   ),
-                  child: Text('${numeroAleatorio.resultado[2]}'),
-                ),
-                const SizedBox(width: 15),
-                ElevatedButton(
-                  onPressed: () {
-                    if (numeroAleatorio.total == numeroAleatorio.resultado[3]) {
-                      _resultadoCorrecto(context);
-                      oportunidades++;
-                      puntuaje += 10;
-                      oportunidades == 4
-                          ? nivel++
-                          : oportunidades == 8
-                              ? nivel++
-                              : oportunidades == 12
-                                  ? nivel++
-                                  : oportunidades == 16
-                                      ? Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                PantallaGanador(
-                                                    nombre: nombreFinal,
-                                                    puntaje: numeroAleatorio
-                                                        .puntajeFinal),
-                                          ),
-                                        )
-                                      : print("ERROR");
-                    } else {
-                      _resultadoIncorrecto(context);
-                    }
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color(0xFF90CAF9)),
+                  child: Text(
+                    '${numeroAleatorio.resultado[1]}',
+                    style: const TextStyle(
+                      fontSize: 25,
+                    ),
                   ),
-                  child: Text('${numeroAleatorio.resultado[3]}'),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Container(),
+          const SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  if (numeroAleatorio.total == numeroAleatorio.resultado[2]) {
+                    _resultadoCorrecto(context);
+                    oportunidades++;
+                    puntuaje += 10;
+                    oportunidades == 4
+                        ? nivel++
+                        : oportunidades == 8
+                            ? nivel++
+                            : oportunidades == 12
+                                ? nivel++
+                                : oportunidades == 16
+                                    ? Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => PantallaGanador(
+                                              nombre: nombreFinal,
+                                              puntaje:
+                                                  numeroAleatorio.puntajeFinal),
+                                        ),
+                                      )
+                                    : print("ERROR");
+                  } else {
+                    _resultadoIncorrecto(context);
+                  }
+                },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xFF90CAF9)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 5.0,
+                  ),
+                  child: Text(
+                    '${numeroAleatorio.resultado[2]}',
+                    style: const TextStyle(
+                      fontSize: 25,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 15),
+              ElevatedButton(
+                onPressed: () {
+                  if (numeroAleatorio.total == numeroAleatorio.resultado[3]) {
+                    _resultadoCorrecto(context);
+                    oportunidades++;
+                    puntuaje += 10;
+                    oportunidades == 4
+                        ? nivel++
+                        : oportunidades == 8
+                            ? nivel++
+                            : oportunidades == 12
+                                ? nivel++
+                                : oportunidades == 16
+                                    ? Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => PantallaGanador(
+                                              nombre: nombreFinal,
+                                              puntaje:
+                                                  numeroAleatorio.puntajeFinal),
+                                        ),
+                                      )
+                                    : print("ERROR");
+                  } else {
+                    _resultadoIncorrecto(context);
+                  }
+                },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xFF90CAF9)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 5.0,
+                  ),
+                  child: Text(
+                    '${numeroAleatorio.resultado[3]}',
+                    style: const TextStyle(
+                      fontSize: 25,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            margin: const EdgeInsets.only(
+              top: 30.0,
+            ),
+            child: Image.asset('assets/imagenes/juego.gif'),
+          )
         ],
       ),
     );

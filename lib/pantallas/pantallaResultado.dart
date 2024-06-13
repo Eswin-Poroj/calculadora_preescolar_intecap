@@ -104,24 +104,24 @@ class PantallaGanador extends StatelessWidget {
           children: [
             Text(
               '¡Felicidades $nombre!',
-              style: const TextStyle(fontSize: 35),
+              style: const TextStyle(fontSize: 40),
             ),
             const SizedBox(height: 10),
             const Text(
               '¡Haz Ganado!',
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 30,
               ),
             ),
             const SizedBox(height: 10),
             SizedBox(
               height: 250,
-              child: Image.asset('assets/imagenes/victoria.gif'),
+              child: Image.asset('assets/imagenes/bmo.gif'),
             ),
             const SizedBox(height: 10),
             Container(
               height: 50,
-              width: 200,
+              width: 250,
               decoration: const BoxDecoration(
                 color: Color(0xFFCE93D8),
                 borderRadius: BorderRadius.all(
@@ -129,10 +129,16 @@ class PantallaGanador extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Text('Tu puntaje fue de: $puntaje'),
+                child: Text(
+                  'Tu puntaje fue de: $puntaje',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
@@ -152,6 +158,7 @@ class PantallaGanador extends StatelessWidget {
                 'JUGAR DE NUEVO',
                 style: TextStyle(
                   color: Colors.black,
+                  fontSize: 20,
                 ),
               ),
             )
