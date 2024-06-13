@@ -1,125 +1,6 @@
 import 'package:app_ninios/pantallas/numero_aleatorio.dart';
-import 'package:app_ninios/pantallas/pantallaJuego.dart';
 import 'package:app_ninios/pantallas/pantallaNombre.dart';
 import 'package:flutter/material.dart';
-
-/*class PantallarGanador extends StatefulWidget {
-  dynamic nombre = '';
-  PantallarGanador({required this.nombre});
-
-  @override
-  _PantallaGanadorState createState() =>
-      _PantallaGanadorState(nombreJugador: nombre);
-}
-
-class _PantallaGanadorState extends State<PantallarGanador> {
-  String nombreJugador = '';
-
-  _PantallaGanadorState({required this.nombreJugador});
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFD3D3D3),
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/');
-              },
-              icon: Image.asset('assets/imagenes/icono.png'),
-            );
-          },
-        ),
-        title: const Center(
-          child: Text(
-            '¡Felicides eres un Ganador!',
-            style: TextStyle(
-              fontSize: 15,
-            ),
-          ),
-        ),
-      ),
-      endDrawer: Drawer(
-        width: 250,
-        backgroundColor: const Color(0xFFCE93D8),
-        child: ListView(
-          children: [
-            const SizedBox(
-              height: 80,
-              child: DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color(0xFFD3D3D3),
-                ),
-                child: Text(
-                  'Menú',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline),
-                ),
-              ),
-            ),
-            ListTile(
-              title: const Text(
-                'Home',
-                textAlign: TextAlign.center,
-              ),
-              onTap: () {
-                Navigator.pushNamed(context, '/');
-              },
-            ),
-            ListTile(
-              title: const Text(
-                'Mejores Puntuaciones',
-                textAlign: TextAlign.center,
-              ),
-              onTap: () {
-                Navigator.pushNamed(context, 'mejoresPuntucaciones');
-              },
-            ),
-            const SizedBox(
-              height: 250,
-            ),
-            SizedBox(
-              width: 150,
-              height: 150,
-              child: Image.asset('assets/imagenes/icono.png'),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'Calculadora de Niños',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('d $nombreJugador'),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-*/
 
 class PantallaGanador extends StatelessWidget {
   dynamic nombre = "";
@@ -135,7 +16,8 @@ class PantallaGanador extends StatelessWidget {
           builder: (context) {
             return IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/', (Route<dynamic> route) => false);
               },
               icon: Image.asset('assets/imagenes/icono.png'),
             );
@@ -177,7 +59,8 @@ class PantallaGanador extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/', (Route<dynamic> route) => false);
               },
             ),
             ListTile(

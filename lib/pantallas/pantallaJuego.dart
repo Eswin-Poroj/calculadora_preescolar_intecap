@@ -1,8 +1,10 @@
 // main.dart
+import 'package:app_ninios/pantallas/pantallaMejoresPuntuaciones.dart';
 import 'package:app_ninios/pantallas/pantallaResultado.dart';
 import 'package:flutter/material.dart';
 
 import 'numero_aleatorio.dart';
+import 'pantallaNombre.dart';
 
 class Pantallajuego extends StatefulWidget {
   dynamic nombre = '';
@@ -34,7 +36,8 @@ class _PantallajuegoState extends State<Pantallajuego> {
           builder: (context) {
             return IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/', (Route<dynamic> route) => false);
               },
               icon: Image.asset('assets/imagenes/icono.png'),
             );
@@ -76,7 +79,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                 textAlign: TextAlign.center,
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/');
+                _advertenciaSalida(context);
               },
             ),
             ListTile(
@@ -85,7 +88,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
                 textAlign: TextAlign.center,
               ),
               onTap: () {
-                Navigator.pushNamed(context, 'mejoresPuntuaciones');
+                _advertenciaSalidaMejoresPuntuaciones(context);
               },
             ),
             const SizedBox(
@@ -361,6 +364,72 @@ class _PantallajuegoState extends State<Pantallajuego> {
                     MaterialPageRoute(
                         builder: (context) =>
                             Pantallajuego(nombre: nuevoNombre)));
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _advertenciaSalida(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('¡Advertencia!'),
+          content: const Text(
+              '¡Estas intentando salir del juego y no sé te guardará tu puntuaje obtenido!'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Cancelar'),
+            ),
+            TextButton(
+              child: const Text('Salir'),
+              onPressed: () {
+                nuevoNombre = nombreJugador;
+                puntuaje = 0;
+                nivel = 1;
+                oportunidades = 0;
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/', (Route<dynamic> route) => false);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _advertenciaSalidaMejoresPuntuaciones(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('¡Advertencia!'),
+          content: const Text(
+              '¡Estas intentando salir del juego y no sé te guardará tu puntuaje obtenido!'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Cancelar'),
+            ),
+            TextButton(
+              child: const Text('Salir'),
+              onPressed: () {
+                nuevoNombre = nombreJugador;
+                puntuaje = 0;
+                nivel = 1;
+                oportunidades = 0;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Pantallamejorespuntuaciones()));
               },
             ),
           ],

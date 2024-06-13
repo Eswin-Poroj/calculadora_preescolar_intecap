@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'package:app_ninios/pantallas/pantallaJuego.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +9,10 @@ class IngresarNombre extends StatefulWidget {
   _IngresarNombreState createState() => _IngresarNombreState();
 }
 
+dynamic nombreFinal;
+
 class _IngresarNombreState extends State<IngresarNombre> {
   final TextEditingController _nombreUsuario = TextEditingController();
-  dynamic nombreFinal;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,8 @@ class _IngresarNombreState extends State<IngresarNombre> {
           builder: (context) {
             return IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/', (Route<dynamic> route) => false);
               },
               icon: Image.asset('assets/imagenes/icono.png'),
             );
@@ -65,7 +66,8 @@ class _IngresarNombreState extends State<IngresarNombre> {
                 textAlign: TextAlign.center,
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/', (Route<dynamic> route) => false);
               },
             ),
             ListTile(

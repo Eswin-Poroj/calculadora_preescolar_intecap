@@ -12,7 +12,8 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
           builder: (context) {
             return IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/', (Route<dynamic> route) => false);
               },
               icon: Image.asset('assets/imagenes/icono.png'),
             );
@@ -54,7 +55,8 @@ class Pantallamejorespuntuaciones extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/', (Route<dynamic> route) => false);
               },
             ),
             ListTile(
