@@ -1,3 +1,4 @@
+import 'package:app_ninios/pantallas/numero_aleatorio.dart';
 import 'package:app_ninios/pantallas/pantallaJuego.dart';
 import 'package:app_ninios/pantallas/pantallaNombre.dart';
 import 'package:flutter/material.dart';
@@ -252,10 +253,13 @@ class PantallaGanador extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Pantallajuego(nombre: "")));
+                        builder: (context) => const IngresarNombre()));
+                puntaje = 0;
+                oportunidades = 0;
+                nivel = 1;
               },
               child: const Text(
                 'JUGAR DE NUEVO',
