@@ -114,257 +114,271 @@ class _PantallajuegoState extends State<Pantallajuego> {
       ),
       body: Column(
         children: [
-          const SizedBox(height: 20),
-          Center(
-            child: SizedBox(
-              child: Text(
-                numeroAleatorio.operacion,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 50,
-                    color: Colors.blueAccent),
+          Expanded(
+            child: Center(
+              child: SizedBox(
+                child: Text(
+                  numeroAleatorio.operacion,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 50,
+                      color: Colors.blueAccent),
+                ),
               ),
             ),
           ),
-          const SizedBox(
-            height: 40,
-          ),
-          Center(
-            child: SizedBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '${numeroAleatorio.num1}',
-                    style: const TextStyle(
-                      fontSize: 80,
-                    ),
+          Expanded(
+            child: Center(
+              child: SizedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${numeroAleatorio.num1}',
+                        style: const TextStyle(
+                          fontSize: 80,
+                        ),
+                      ),
+                      const SizedBox(width: 30),
+                      Text(
+                        numeroAleatorio.operador,
+                        style: const TextStyle(
+                          fontSize: 80,
+                        ),
+                      ),
+                      const SizedBox(width: 30),
+                      Text(
+                        '${numeroAleatorio.num2}',
+                        style: const TextStyle(
+                          fontSize: 80,
+                        ),
+                      ),
+                      const SizedBox(width: 30),
+                      const Text(
+                        "=",
+                        style: TextStyle(
+                          fontSize: 80,
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 30),
-                  Text(
-                    numeroAleatorio.operador,
-                    style: const TextStyle(
-                      fontSize: 80,
-                    ),
-                  ),
-                  const SizedBox(width: 30),
-                  Text(
-                    '${numeroAleatorio.num2}',
-                    style: const TextStyle(
-                      fontSize: 80,
-                    ),
-                  ),
-                  const SizedBox(width: 30),
-                  Text(
-                    "=",
-                    style: const TextStyle(
-                      fontSize: 80,
-                    ),
-                  ),
-                ],
-              ),
+                  height: 150),
             ),
+            flex: 3,
           ),
-          const SizedBox(height: 30),
-          Container(
+          const Expanded(
+            flex: 1,
             child: Text(
               "Respuestas posibles",
               style: TextStyle(fontSize: 20, color: Colors.redAccent),
             ),
           ),
-          const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  if (numeroAleatorio.total == numeroAleatorio.resultado[0]) {
-                    _resultadoCorrecto(context);
-                    oportunidades++;
-                    puntuaje += 10;
-                    oportunidades == 4
-                        ? nivel++
-                        : oportunidades == 8
-                            ? nivel++
-                            : oportunidades == 12
-                                ? nivel++
-                                : oportunidades == 16
-                                    ? Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => PantallaGanador(
-                                              nombre: nombreFinal,
-                                              puntaje:
-                                                  numeroAleatorio.puntajeFinal),
-                                        ),
-                                      )
-                                    : print("ERROR");
-                  } else {
-                    _resultadoIncorrecto(context);
-                  }
-                },
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(const Color(0xFF90CAF9)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 5.0, right: 0, left: 0),
-                  child: Text(
-                    '${numeroAleatorio.resultado[0]}',
-                    style: const TextStyle(
-                      fontSize: 25,
+          Expanded(
+            flex: 1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    if (numeroAleatorio.total == numeroAleatorio.resultado[0]) {
+                      _resultadoCorrecto(context);
+                      oportunidades++;
+                      puntuaje += 10;
+                      oportunidades == 4
+                          ? nivel++
+                          : oportunidades == 8
+                              ? nivel++
+                              : oportunidades == 12
+                                  ? nivel++
+                                  : oportunidades == 16
+                                      ? Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PantallaGanador(
+                                                    nombre: nombreFinal,
+                                                    puntaje: numeroAleatorio
+                                                        .puntajeFinal),
+                                          ),
+                                        )
+                                      : print("ERROR");
+                    } else {
+                      _resultadoIncorrecto(context);
+                    }
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFF90CAF9)),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 5.0, right: 0, left: 0),
+                    child: Text(
+                      '${numeroAleatorio.resultado[0]}',
+                      style: const TextStyle(
+                        fontSize: 25,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 15),
-              ElevatedButton(
-                onPressed: () {
-                  if (numeroAleatorio.total == numeroAleatorio.resultado[1]) {
-                    _resultadoCorrecto(context);
-                    oportunidades++;
-                    puntuaje += 10;
-                    oportunidades == 4
-                        ? nivel++
-                        : oportunidades == 8
-                            ? nivel++
-                            : oportunidades == 12
-                                ? nivel++
-                                : oportunidades == 16
-                                    ? Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => PantallaGanador(
-                                              nombre: nombreFinal,
-                                              puntaje:
-                                                  numeroAleatorio.puntajeFinal),
-                                        ),
-                                      )
-                                    : print("ERROR");
-                  } else {
-                    _resultadoIncorrecto(context);
-                  }
-                },
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(const Color(0xFF90CAF9)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 5.0,
+                const SizedBox(width: 15),
+                ElevatedButton(
+                  onPressed: () {
+                    if (numeroAleatorio.total == numeroAleatorio.resultado[1]) {
+                      _resultadoCorrecto(context);
+                      oportunidades++;
+                      puntuaje += 10;
+                      oportunidades == 4
+                          ? nivel++
+                          : oportunidades == 8
+                              ? nivel++
+                              : oportunidades == 12
+                                  ? nivel++
+                                  : oportunidades == 16
+                                      ? Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PantallaGanador(
+                                                    nombre: nombreFinal,
+                                                    puntaje: numeroAleatorio
+                                                        .puntajeFinal),
+                                          ),
+                                        )
+                                      : print("ERROR");
+                    } else {
+                      _resultadoIncorrecto(context);
+                    }
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFF90CAF9)),
                   ),
-                  child: Text(
-                    '${numeroAleatorio.resultado[1]}',
-                    style: const TextStyle(
-                      fontSize: 25,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 5.0,
+                    ),
+                    child: Text(
+                      '${numeroAleatorio.resultado[1]}',
+                      style: const TextStyle(
+                        fontSize: 25,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  if (numeroAleatorio.total == numeroAleatorio.resultado[2]) {
-                    _resultadoCorrecto(context);
-                    oportunidades++;
-                    puntuaje += 10;
-                    oportunidades == 4
-                        ? nivel++
-                        : oportunidades == 8
-                            ? nivel++
-                            : oportunidades == 12
-                                ? nivel++
-                                : oportunidades == 16
-                                    ? Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => PantallaGanador(
-                                              nombre: nombreFinal,
-                                              puntaje:
-                                                  numeroAleatorio.puntajeFinal),
-                                        ),
-                                      )
-                                    : print("ERROR");
-                  } else {
-                    _resultadoIncorrecto(context);
-                  }
-                },
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(const Color(0xFF90CAF9)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 5.0,
-                  ),
-                  child: Text(
-                    '${numeroAleatorio.resultado[2]}',
-                    style: const TextStyle(
-                      fontSize: 25,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 15),
-              ElevatedButton(
-                onPressed: () {
-                  if (numeroAleatorio.total == numeroAleatorio.resultado[3]) {
-                    _resultadoCorrecto(context);
-                    oportunidades++;
-                    puntuaje += 10;
-                    oportunidades == 4
-                        ? nivel++
-                        : oportunidades == 8
-                            ? nivel++
-                            : oportunidades == 12
-                                ? nivel++
-                                : oportunidades == 16
-                                    ? Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => PantallaGanador(
-                                              nombre: nombreFinal,
-                                              puntaje:
-                                                  numeroAleatorio.puntajeFinal),
-                                        ),
-                                      )
-                                    : print("ERROR");
-                  } else {
-                    _resultadoIncorrecto(context);
-                  }
-                },
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(const Color(0xFF90CAF9)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 5.0,
-                  ),
-                  child: Text(
-                    '${numeroAleatorio.resultado[3]}',
-                    style: const TextStyle(
-                      fontSize: 25,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Container(
-            margin: const EdgeInsets.only(
-              top: 80.0,
+              ],
             ),
-            child: Image.asset(
-              'assets/imagenes/juego.gif',
+          ),
+          const SizedBox(height: 10),
+          Expanded(
+            flex: 1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    if (numeroAleatorio.total == numeroAleatorio.resultado[2]) {
+                      _resultadoCorrecto(context);
+                      oportunidades++;
+                      puntuaje += 10;
+                      oportunidades == 4
+                          ? nivel++
+                          : oportunidades == 8
+                              ? nivel++
+                              : oportunidades == 12
+                                  ? nivel++
+                                  : oportunidades == 16
+                                      ? Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PantallaGanador(
+                                                    nombre: nombreFinal,
+                                                    puntaje: numeroAleatorio
+                                                        .puntajeFinal),
+                                          ),
+                                        )
+                                      : print("ERROR");
+                    } else {
+                      _resultadoIncorrecto(context);
+                    }
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFF90CAF9)),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 5.0,
+                    ),
+                    child: Text(
+                      '${numeroAleatorio.resultado[2]}',
+                      style: const TextStyle(
+                        fontSize: 25,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 15),
+                ElevatedButton(
+                  onPressed: () {
+                    if (numeroAleatorio.total == numeroAleatorio.resultado[3]) {
+                      _resultadoCorrecto(context);
+                      oportunidades++;
+                      puntuaje += 10;
+                      oportunidades == 4
+                          ? nivel++
+                          : oportunidades == 8
+                              ? nivel++
+                              : oportunidades == 12
+                                  ? nivel++
+                                  : oportunidades == 16
+                                      ? Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PantallaGanador(
+                                                    nombre: nombreFinal,
+                                                    puntaje: numeroAleatorio
+                                                        .puntajeFinal),
+                                          ),
+                                        )
+                                      : print("ERROR");
+                    } else {
+                      _resultadoIncorrecto(context);
+                    }
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xFF90CAF9)),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 5.0,
+                    ),
+                    child: Text(
+                      '${numeroAleatorio.resultado[3]}',
+                      style: const TextStyle(
+                        fontSize: 25,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          )
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              margin: const EdgeInsets.only(
+                top: 24.0,
+                bottom: 14.0,
+              ),
+              child: Image.asset(
+                'assets/imagenes/juego.gif',
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -403,6 +417,7 @@ class _PantallajuegoState extends State<Pantallajuego> {
             TextButton(
               child: const Text('Nueva Partida'),
               onPressed: () {
+                numeroAleatorio.mejorPuntuacion();
                 nuevoNombre = nombreJugador;
                 puntuaje = 0;
                 nivel = 1;
